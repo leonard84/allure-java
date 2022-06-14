@@ -56,7 +56,7 @@ import static org.assertj.core.api.Assertions.tuple;
  * @author charlie (Dmitry Baev).
  */
 @SuppressWarnings("unchecked")
-class AllureSpockTest {
+class AllureSpock1Test {
 
     @Test
     void shouldStoreTestsInformation() {

@@ -24,7 +24,6 @@ import io.qameta.allure.Muted
 import io.qameta.allure.Owner
 import io.qameta.allure.Stories
 import io.qameta.allure.Story
-import org.junit.Test
 import spock.lang.Specification
 
 /**
@@ -32,7 +31,6 @@ import spock.lang.Specification
  */
 class TestWithAnnotations extends Specification {
 
-    @Test
     @Epic("epic1")
     @Epics([
             @Epic("epic2"),

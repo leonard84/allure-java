@@ -15,35 +15,42 @@
  */
 package io.qameta.allure.spock.samples
 
-import io.qameta.allure.Issue
-import io.qameta.allure.Issues
-import io.qameta.allure.Link
-import io.qameta.allure.Links
-import io.qameta.allure.TmsLink
-import io.qameta.allure.TmsLinks
-import org.junit.Test
+import io.qameta.allure.Epic
+import io.qameta.allure.Epics
+import io.qameta.allure.Feature
+import io.qameta.allure.Features
+import io.qameta.allure.Flaky
+import io.qameta.allure.Muted
+import io.qameta.allure.Owner
+import io.qameta.allure.Stories
+import io.qameta.allure.Story
 import spock.lang.Specification
 
 /**
- * @author charlie (Dmitry Baev).
+ * @author vbragin
  */
-class FailedTest extends Specification {
+@Epic("epic1")
+@Features([
+        @Feature("feature1"),
+        @Feature("feature2")
+])
+@Feature("feature3")
+@Story("story1")
+@Stories([
+        @Story("story2"),
+        @Story("story3")]
+)
+class TestWithAnnotationsOnClass extends Specification {
 
-    @Test
-    @Links([
-            @Link("link-1"),
-            @Link("link-2")
+    @Flaky
+    @Epics([
+            @Epic("epic2"),
+            @Epic("epic3")
     ])
-    @Issues([
-            @Issue("issue-1"),
-            @Issue("issue-2")
-    ])
-    @TmsLinks([
-            @TmsLink("tms-1"),
-            @TmsLink("tms-2")
-    ])
-    def "failedTest"() {
+    @Muted
+    @Owner("some-owner")
+    def "someTest"() {
         expect:
-        false
+        true
     }
 }

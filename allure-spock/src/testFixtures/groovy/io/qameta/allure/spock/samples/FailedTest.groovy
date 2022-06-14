@@ -15,25 +15,33 @@
  */
 package io.qameta.allure.spock.samples
 
-import io.qameta.allure.Epic
-import io.qameta.allure.Feature
-import io.qameta.allure.Story
-import org.junit.Test
+import io.qameta.allure.Issue
+import io.qameta.allure.Issues
+import io.qameta.allure.Link
+import io.qameta.allure.Links
+import io.qameta.allure.TmsLink
+import io.qameta.allure.TmsLinks
 import spock.lang.Specification
 
 /**
- * @author vbragin
+ * @author charlie (Dmitry Baev).
  */
-class TestWithCustomAnnotations extends Specification {
+class FailedTest extends Specification {
 
-    @Test
-    @Epic("epic")
-    @Feature("feature")
-    @Story("story")
-    @JiraIssue("AS-1")
-    @XrayId("XRT-1")
-    def "someTest"() {
+    @Links([
+            @Link("link-1"),
+            @Link("link-2")
+    ])
+    @Issues([
+            @Issue("issue-1"),
+            @Issue("issue-2")
+    ])
+    @TmsLinks([
+            @TmsLink("tms-1"),
+            @TmsLink("tms-2")
+    ])
+    def "failedTest"() {
         expect:
-        true
+        false
     }
 }
